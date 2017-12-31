@@ -19,6 +19,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <NewModal show={this.state.isOpen} onClose={this.toggleModal}>
+        </NewModal>
         <NavBar toggleModal = {this.toggleModal.bind(this)}></NavBar>
       </div>
     );
