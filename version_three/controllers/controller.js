@@ -17,10 +17,9 @@ controller.create = (req, res) => {
         lastName = req.body.last_name,
         email = req.body.email,
         zipCode = req.body.zip_code,
-        usState = req.body.us_state,
-        id = req.params.id;
+        usState = req.body.us_state;
         contacts
-        .create(firstName,lastName, email, zipCode, usState, id)
+        .create(firstName,lastName, email, zipCode, usState)
         .then(data => res.json(data))
         .catch( err => console.log(err));
 }

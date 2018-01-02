@@ -25,75 +25,34 @@ class Modal extends Component {
         this.setState({
             [name]: value
         });
-   
-        // if(name === 'email'){
-        //     const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        //     if (value.match(mailformat)){
-        //         this.setState({
-        //             [name]: value
-        //         });
-        //     } else {
-        //         alert("You have entered an invalid email address!");
-        //     }
-        // }
-        // if (name === 'zipCode') {
-        //     const validZip = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
-        //     if (value.match(validZip)) {
-        //         this.setState({
-        //             [name]: value
-        //         });
-        //     } else {
-        //         alert("You have entered an invalid zipCode!");
-        //     }
-        // }
-        // if (name === 'firstName') {
-        //     const validFirstName = /[a-zA-Z]/;
-        //     if (value.match(validFirstName)) {
-        //         this.setState({
-        //             [name]: value
-        //         });
-        //     } else {
-        //         alert("You have entered an invalid zipCode!");
-        //     }
-        // }
-        // if (name === 'lastName') {
-        //     const validLastName = /[^." ,\t ;:@#$%\^&*()\[\]\{\}\\|/!?`~<>+=]?/;
-        //     if (value.match(validLastName)) {
-        //         this.setState({
-        //             [name]: value
-        //         });
-        //     } else {
-        //         alert("You have a non accepted character, please adjust.");
-        //     }
-        // } if (name === 'usState') {
-        //         this.setState({
-        //             [name]: value
-        //         });
-        // }
+        console.log(name, value)
     }
 
     // To send to the data base
     handleSubmit(e) {
         e.preventDefault();
-        if (!this.state.firstName.match(/[a-zA-Z]/)){
-            alert('Your name have extra characteres from a-z, please edit');
-        } else if (!this.state.lastName.match(/([^." ,\t ;:@#$%\^&*()\[\]\{\}\\|/!]?`~<>+=)?/)){
-            alert("You have a non accepted character, please adjust.");
-        } else if (!this.state.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-            alert("You have entered an invalid email address!");
-        } else if (!this.state.zipCode.match(/(^\d{5}$)|(^\d{5}-\d{4}$)/)) {
-            alert("You have entered an invalid zipCode!");
-        } else{
-            Axios.post('/contacts',{
+        // if (!this.state.firstName.match(/[a-zA-Z]/)){
+        //     alert('Your name have extra characteres from a-z, please edit');
+        // } else if (!this.state.lastName.match(/([^." ,\t ;:@#$%\^&*()\[\]\{\}\\|/!]?`~<>+=)?/)){
+        //     alert("You have a non accepted character, please adjust.");
+        // } else if (!this.state.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+        //     alert("You have entered an invalid email address!");
+        // } else if (!this.state.zipCode.match(/(^\d{5}$)|(^\d{5}-\d{4}$)/)) {
+        //     alert("You have entered an invalid zipCode!");
+        // } else{
+          const contactInfo = {
                 first_name: this.state.firstName,
                 last_name: this.state.lastName,
                 email: this.state.email,
                 zip_code: this.state.zipCode,
                 us_state: this.state.usState 
-            })
+            };
+        console.log(contactInfo);
+            Axios.post('/contacts', contactInfo)
             .then(res => console.log(res.data))
             .catch(err => console.log(err));
-        }
+        // }
+        
     } 
     render(props) {
 

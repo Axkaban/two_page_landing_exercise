@@ -1,4 +1,4 @@
-const db = require('../../../external_migration/contact_info');
+const db = require('../migration/contact_info');
 
 const contact = {};
 

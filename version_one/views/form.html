@@ -9,10 +9,10 @@
 <body>
     <form className='contact-info' method='post'>
         <label for='POST-first-name'>First Name:</label>
-        <input id='POST-first-name' type='text' placeholder='first name' />
+        <input id='POST-first-name' type='text' placeholder='first name' pattern="[a-zA-Z]" title='Alphabet charachters only'/>
         <br/>
         <label for='POST-last-name'>Last Name:</label>
-        <input id='POST-last-name' type='text' placeholder='Last name' />
+        <input id='POST-last-name' type='text' placeholder='Last name' pattern='[^." ,\t ;:@#$%\^&*()\[\]\{\}\\|/!?`~<>+=]?' title='Alphabet charachters, hyphens, and apostrophes only'/>
         <br/>
         <label for='POST-email'>Email:</label>
         <input id='POST-email' type='text' placeholder='email@email.com' />
