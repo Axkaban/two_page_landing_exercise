@@ -71,10 +71,10 @@ class Modal extends Component {
                     </div>
                     <form className='contact-info' method='post' onSubmit={this.handleSubmit.bind(this)}>
                         <label>First Name:
-                        <input id = 'POST-first-name' name = 'firstName' type = 'text' placeholder = 'first name' value={this.state.firstName} onChange = {this.handleChange.bind(this)}/>
+                        <input id='POST-first-name' name='firstName' type='text' placeholder='first name' value={this.state.firstName} onChange={this.handleChange.bind(this)} />
                         </label><br/>
                         <label>Last Name:</label>
-                        <input id = 'POST-last-name' name = 'lastName' type = 'text' placeholder = 'Last name' value = {this.state.lastName} onChange = {this.handleChange.bind(this)}/>
+                        <input id='POST-last-name' name='lastName' type='text' placeholder='Last name' value={this.state.lastName} onChange={this.handleChange.bind(this)} />
                         <br/>
                         <label>Email:</label>
                         <input id = 'POST-email' name = 'email' type = 'text' placeholder = 'email@email.com' value = {this.state.email} onChange = {this.handleChange.bind(this)}/>

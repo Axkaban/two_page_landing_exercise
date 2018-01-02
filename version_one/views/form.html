@@ -5,76 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
+    <script type='text/javascript' src="/js/script.js"></script>
 </head>
-<body>
-    <form className='contact-info' method='post'>
-        <label for='POST-first-name'>First Name:</label>
-        <input id='POST-first-name' type='text' placeholder='first name' pattern="[a-zA-Z]" title='Alphabet charachters only'/>
-        <br/>
-        <label for='POST-last-name'>Last Name:</label>
-        <input id='POST-last-name' type='text' placeholder='Last name' pattern='[^." ,\t ;:@#$%\^&*()\[\]\{\}\\|/!?`~<>+=]?' title='Alphabet charachters, hyphens, and apostrophes only'/>
-        <br/>
-        <label for='POST-email'>Email:</label>
-        <input id='POST-email' type='text' placeholder='email@email.com' />
-        <br/>
-        <label for='POST-zip-code'>Zip Code:</label>
-        <input id='POST-zip-code' type='integer' placeholder='Zip Code' />
-        <br/>
-        <label for='POST-us-state'>State of Residence( US Only ):</label>
-        <select id='POST-us-state'>
-            <option selected value='Alabama'>Alabama</option>
-            <option value='Alaska'>Alaska</option>
-            <option value='Arizona'>Arizona</option>
-            <option value='Arkansas'>Arkansas</option>
-            <option value='California'>California</option>
-            <option value='Colorado'>Colorado</option>
-            <option value='Connecticut'>Connecticut</option>
-            <option value='Delaware'>Delaware</option>
-            <option value='Florida'>Florida</option>
-            <option value='Georgia'>Georgia</option>
-            <option value='Hawaii'>Hawaii</option>
-            <option value='Idaho'>Idaho</option>
-            <option value='Illinois'>Illinois</option>
-            <option value='Indiana'>Indiana</option>
-            <option value='Iowa'>Iowa</option>
-            <option value='Kansas'>Kansas</option>
-            <option value='Kentucky'>Kentucky</option>
-            <option value='Luisiana'>Luisiana</option>
-            <option value='Maine'>Maine</option>
-            <option value='Maryland'>Maryland</option>
-            <option value='Massachusetts'>Massachusetts</option>
-            <option value='Michigan'>Michigan</option>
-            <option value='Minnesota'>Minnesota</option>
-            <option value='Mississippi'>Mississippi</option>
-            <option value='Missouri'>Missouri</option>
-            <option value='Montana'>Montana</option>
-            <option value='Nebraska'>Nebraska</option>
-            <option value='Nevada'>Nevada</option>
-            <option value='New Hampshire'>New Hampshire</option>
-            <option value='New Jersey'>New Jersey</option>
-            <option value='New Mexico'>New Mexico</option>
-            <option value='New York'>New York</option>
-            <option value='North Carolina'>North Carolina</option>
-            <option value='North Dakota'>North Dakota</option>
-            <option value='Ohio'>Ohio</option>
-            <option value='Oklahoma'>Oklahoma</option>
-            <option value='Oregon'>Oregon</option>
-            <option value='Pennsylvania'>Pennsylvania</option>
-            <option value='Rhode Island'>Rhode Island</option>
-            <option value='South Carolina'>South Carolina</option>
-            <option value='South Dakota'>South Dakota</option>
-            <option value='Tennessee'>Tennessee</option>
-            <option value='Texas'>Texas</option>
-            <option value='Utah'>Utah</option>
-            <option value='Vermont'>Vermont</option>
-            <option value='Virginia'>Virginia</option>
-            <option value='Washington'>Washington</option>
-            <option value='West Virginia'>West Virginia</option>
-            <option value='Wisconsin'>Wisconsin</option>
-            <option value='Wyoming'>Wyoming</option>
-        </select>
-        <br/>
-        <input type="submit" value="Save" />
-    </form>
+<body id='container'>
+    <!-- Keeping access from the nav -->
+    <div id='nav-section'> 
+       <nav class='nav-bar'>
+            <a href='/'><img id='logo' src='/css/images/spiral_brand.png' alt='' /></a>
+            <a href='#'>About us</a>
+            <a href='#'>Product</a>
+            <a class='contact-button' href='./form.html'>Contact us</a>
+        </nav>
+    </div>
+    <!-- Section for form to contact -->
+    <div id='contact-form'>
+        <form className='contact-info' method='post'>
+            <label for='POST-first-name'>First Name:</label>
+            <input id='POST-first-name' type='text' placeholder='first name' pattern="[a-zA-Z]" title='Alphabet charachters only'/>
+            <br/>
+            <label for='POST-last-name'>Last Name:</label>
+            <input id='POST-last-name' type='text' placeholder='Last name' pattern='[^." ,\t ;:@#$%\^&*()\[\]\{\}\\|/!?`~<>+=]?' title='Alphabet charachters, hyphens, and apostrophes only'/>
+            <br/>
+            <label for='POST-email'>Email:</label>
+            <input id='POST-email' type='text' placeholder='email@email.com' />
+            <br/>
+            <label for='POST-zip-code'>Zip Code:</label>
+            <input id='POST-zip-code' type='integer' placeholder='Zip Code' />
+            <br/>
+            <label for='POST-us-state'>State of Residence( US Only ):</label>
+            <select id='POST-us-state'>
+                <option selected value='Alabama'>Alabama</option>
+                <option value='Alaska'>Alaska</option>
+                <option value='Arizona'>Arizona</option>
+                <option value='Arkansas'>Arkansas</option>
+                <option value='California'>California</option>
+                <option value='Colorado'>Colorado</option>
+                <option value='Connecticut'>Connecticut</option>
+                <option value='Delaware'>Delaware</option>
+                <option value='Florida'>Florida</option>
+                <option value='Georgia'>Georgia</option>
+                <option value='Hawaii'>Hawaii</option>
+                <option value='Idaho'>Idaho</option>
+                <option value='Illinois'>Illinois</option>
+                <option value='Indiana'>Indiana</option>
+                <option value='Iowa'>Iowa</option>
+                <option value='Kansas'>Kansas</option>
+                <option value='Kentucky'>Kentucky</option>
+                <option value='Luisiana'>Luisiana</option>
+                <option value='Maine'>Maine</option>
+                <option value='Maryland'>Maryland</option>
+                <option value='Massachusetts'>Massachusetts</option>
+                <option value='Michigan'>Michigan</option>
+                <option value='Minnesota'>Minnesota</option>
+                <option value='Mississippi'>Mississippi</option>
+                <option value='Missouri'>Missouri</option>
+                <option value='Montana'>Montana</option>
+                <option value='Nebraska'>Nebraska</option>
+                <option value='Nevada'>Nevada</option>
+                <option value='New Hampshire'>New Hampshire</option>
+                <option value='New Jersey'>New Jersey</option>
+                <option value='New Mexico'>New Mexico</option>
+                <option value='New York'>New York</option>
+                <option value='North Carolina'>North Carolina</option>
+                <option value='North Dakota'>North Dakota</option>
+                <option value='Ohio'>Ohio</option>
+                <option value='Oklahoma'>Oklahoma</option>
+                <option value='Oregon'>Oregon</option>
+                <option value='Pennsylvania'>Pennsylvania</option>
+                <option value='Rhode Island'>Rhode Island</option>
+                <option value='South Carolina'>South Carolina</option>
+                <option value='South Dakota'>South Dakota</option>
+                <option value='Tennessee'>Tennessee</option>
+                <option value='Texas'>Texas</option>
+                <option value='Utah'>Utah</option>
+                <option value='Vermont'>Vermont</option>
+                <option value='Virginia'>Virginia</option>
+                <option value='Washington'>Washington</option>
+                <option value='West Virginia'>West Virginia</option>
+                <option value='Wisconsin'>Wisconsin</option>
+                <option value='Wyoming'>Wyoming</option>
+            </select>
+            <br/>
+            <input type="submit" value="Save" />
+        </form>
+    </div>
+    <!-- footer with helpful links -->
+    <div id='foot-section'>
+        <footer>
+            <p>©AK 2018</p>
+            <a class='contact-foot' href='./form.html'>Contact us</a>
+            <p>Follow Us</p>
+            <a src='#'><img class ='facebook' src='http://www.cherithintl.org/wp-content/uploads/2014/09/Facebook_favicon_2.png' alt='' /></a>
+            <a src='#'><img class ='twitter' src='http://www.clker.com/cliparts/T/V/Q/o/r/o/simple-twitter-icon-th.png' alt='' /></a>
+        </footer>
+    </div>
 </body>
 </html>
