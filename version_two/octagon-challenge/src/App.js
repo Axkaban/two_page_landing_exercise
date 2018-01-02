@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import NavBar from './components/navbar';
+import Modal from './components/modal';
+import Text from './components/text-section';
+import Footer from './components/footer';
 import './App.css';
 
 class App extends Component {
@@ -19,9 +22,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NewModal show={this.state.isOpen} onClose={this.toggleModal}>
-        </NewModal>
+        <Modal show={this.state.isOpen} onClose={this.toggleModal.bind(this)}>
+        </Modal>
         <NavBar toggleModal = {this.toggleModal.bind(this)}></NavBar>
+        <Text></Text>
+        <Footer toggleModal={this.toggleModal.bind(this)}></Footer>
       </div>
     );
   }
