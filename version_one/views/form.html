@@ -20,15 +20,15 @@
     </div>
     <!-- Section for form to contact -->
     <div id='contact-form'>
-        <form className='contact-info' method='post'>
+        <form class ='contact-info' method='post'>
             <label for='POST-first-name'>First Name:</label>
-            <input id='POST-first-name' type='text' placeholder='first name' pattern="[a-zA-Z]" title='Alphabet charachters only'/>
+            <input id='POST-first-name' type='text' placeholder='first name' pattern="[A-Za-z]+" title='Alphabet charachters only'/>
             <br/>
             <label for='POST-last-name'>Last Name:</label>
-            <input id='POST-last-name' type='text' placeholder='Last name' pattern='[^." ,\t ;:@#$%\^&*()\[\]\{\}\\|/!?`~<>+=]?' title='Alphabet charachters, hyphens, and apostrophes only'/>
+            <input id='POST-last-name' type='text' placeholder='Last name' pattern='[^." ,\t ;:@#$%\^&*()\[\]\{\}\\|/!?`~<>+=]+?' title='Alphabet charachters, hyphens, and apostrophes only'/>
             <br/>
             <label for='POST-email'>Email:</label>
-            <input id='POST-email' type='text' placeholder='email@email.com' />
+            <input id='POST-email' type='text' placeholder='email@email.com'  pattern: '[^ @]*@[^ @]*'/>
             <br/>
             <label for='POST-zip-code'>Zip Code:</label>
             <input id='POST-zip-code' type='integer' placeholder='Zip Code' />
@@ -87,7 +87,7 @@
                 <option value='Wyoming'>Wyoming</option>
             </select>
             <br/>
-            <input type="submit" value="Save" />
+            <input class = 'submit-button' type="submit" value="Send" />
         </form>
     </div>
     <!-- footer with helpful links -->
