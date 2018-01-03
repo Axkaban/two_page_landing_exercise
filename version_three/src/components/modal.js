@@ -71,13 +71,13 @@ class Modal extends Component {
                     </div>
                     <form className='contact-info' method='post' onSubmit={this.handleSubmit.bind(this)}>
                         <label>First Name:
-                        <input id='POST-first-name' name='firstName' type='text' placeholder='first name' value={this.state.firstName} onChange={this.handleChange.bind(this)} />
+                        <input id='POST-first-name' name='firstName' type='text' placeholder='first name' value={this.state.firstName} onChange={this.handleChange.bind(this)} pattern='[A-Za-z]+' title='Alphabet charachters only'/>
                         </label><br/>
                         <label>Last Name:</label>
-                        <input id='POST-last-name' name='lastName' type='text' placeholder='Last name' value={this.state.lastName} onChange={this.handleChange.bind(this)} />
+                        <input id='POST-last-name' name='lastName' type='text' placeholder='Last name' value={this.state.lastName} onChange={this.handleChange.bind(this)} pattern='[^." ,\t ;:@#$%\^&*()\[\]\{\}\\|/!?`~<>+=]+?' title='Alphabet charachters, hyphens, and apostrophes only'/>
                         <br/>
                         <label>Email:</label>
-                        <input id = 'POST-email' name = 'email' type = 'text' placeholder = 'email@email.com' value = {this.state.email} onChange = {this.handleChange.bind(this)}/>
+                        <input id='POST-email' name='email' type='text' placeholder='email@email.com' value={this.state.email} onChange={this.handleChange.bind(this)} pattern= '[^ @]*@[^ @]*'/>
                         <br/>
                         <label>Zip Code:</label>
                         <input id = 'POST-zip-code' name = 'zipCode' type = 'integer' placeholder = 'Zip Code' value = {this.state.zipCode} onChange = {this.handleChange.bind(this)}/>
@@ -136,7 +136,7 @@ class Modal extends Component {
                             <option value='Wyoming'>Wyoming</option>
                         </select>
                         <br/>
-                        <input type="submit" value="Save"/>
+                        <input className= 'submit-button' type="submit" value="Save"/>
                     </form>
                 </div>
             </div>

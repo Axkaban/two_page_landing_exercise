@@ -9060,7 +9060,7 @@ var App = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        { className: 'App' },
+        { className: 'App', id: 'container' },
         _react2.default.createElement(_modal2.default, { show: this.state.isOpen, onClose: this.toggleModal.bind(this) }),
         _react2.default.createElement(_navbar2.default, { toggleModal: this.toggleModal.bind(this) }),
         _react2.default.createElement(_textSection2.default, null),
@@ -9114,25 +9114,29 @@ var NavBar = function (_Component) {
             var _this2 = this;
 
             return _react2.default.createElement(
-                'nav',
-                null,
-                _react2.default.createElement('img', { className: 'logo', src: '#', alt: '' }),
+                'div',
+                { id: 'nav-section' },
                 _react2.default.createElement(
-                    'a',
-                    { href: '#' },
-                    'About us'
-                ),
-                _react2.default.createElement(
-                    'a',
-                    { href: '#' },
-                    'Product'
-                ),
-                _react2.default.createElement(
-                    'h2',
-                    { className: 'contact-button', onClick: function onClick() {
-                            _this2.props.toggleModal();
-                        } },
-                    'Contact us'
+                    'nav',
+                    { className: 'nav-bar' },
+                    _react2.default.createElement('img', { id: 'logo', src: 'https://image.ibb.co/hyfjSG/spiral_brand.png', alt: 'spiral_brand', border: '0' }),
+                    _react2.default.createElement(
+                        'a',
+                        { href: '#' },
+                        'About us'
+                    ),
+                    _react2.default.createElement(
+                        'a',
+                        { href: '#' },
+                        'Product'
+                    ),
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'contact-button', onClick: function onClick() {
+                                _this2.props.toggleModal();
+                            } },
+                        'Contact us'
+                    )
                 )
             );
         }
@@ -9269,7 +9273,7 @@ var Modal = function (_Component) {
                             'label',
                             null,
                             'First Name:',
-                            _react2.default.createElement('input', { id: 'POST-first-name', name: 'firstName', type: 'text', placeholder: 'first name', value: this.state.firstName, onChange: this.handleChange.bind(this) })
+                            _react2.default.createElement('input', { id: 'POST-first-name', name: 'firstName', type: 'text', placeholder: 'first name', value: this.state.firstName, onChange: this.handleChange.bind(this), pattern: '[A-Za-z]+', title: 'Alphabet charachters only' })
                         ),
                         _react2.default.createElement('br', null),
                         _react2.default.createElement(
@@ -9277,14 +9281,14 @@ var Modal = function (_Component) {
                             null,
                             'Last Name:'
                         ),
-                        _react2.default.createElement('input', { id: 'POST-last-name', name: 'lastName', type: 'text', placeholder: 'Last name', value: this.state.lastName, onChange: this.handleChange.bind(this) }),
+                        _react2.default.createElement('input', { id: 'POST-last-name', name: 'lastName', type: 'text', placeholder: 'Last name', value: this.state.lastName, onChange: this.handleChange.bind(this), pattern: '[^." ,\\t ;:@#$%\\^&*()\\[\\]\\{\\}\\\\|/!?`~<>+=]+?', title: 'Alphabet charachters, hyphens, and apostrophes only' }),
                         _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             'label',
                             null,
                             'Email:'
                         ),
-                        _react2.default.createElement('input', { id: 'POST-email', name: 'email', type: 'text', placeholder: 'email@email.com', value: this.state.email, onChange: this.handleChange.bind(this) }),
+                        _react2.default.createElement('input', { id: 'POST-email', name: 'email', type: 'text', placeholder: 'email@email.com', value: this.state.email, onChange: this.handleChange.bind(this), pattern: '[^ @]*@[^ @]*' }),
                         _react2.default.createElement('br', null),
                         _react2.default.createElement(
                             'label',
@@ -9553,7 +9557,7 @@ var Modal = function (_Component) {
                             )
                         ),
                         _react2.default.createElement('br', null),
-                        _react2.default.createElement('input', { type: 'submit', value: 'Save' })
+                        _react2.default.createElement('input', { className: 'submit-button', type: 'submit', value: 'Save' })
                     )
                 )
             );
@@ -10442,30 +10446,48 @@ var TextSection = function (_Component) {
     }
 
     _createClass(TextSection, [{
-        key: "render",
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                "div",
-                null,
+                'div',
+                { id: 'main-section' },
                 _react2.default.createElement(
-                    "p",
-                    null,
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quo iusto dolores corrupti doloremque illo recusandae quos quam et repellendus, distinctio vel ducimus laudantium fuga. Eligendi quia sint earum dolor?"
+                    'h1',
+                    { className: 'main-text' },
+                    'We are Spiral'
                 ),
                 _react2.default.createElement(
-                    "p",
+                    'h3',
                     null,
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quo iusto dolores corrupti doloremque illo recusandae quos quam et repellendus, distinctio vel ducimus laudantium fuga. Eligendi quia sint earum dolor?"
+                    'A better way to use your wearables\' data'
                 ),
                 _react2.default.createElement(
-                    "p",
+                    'p',
                     null,
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quo iusto dolores corrupti doloremque illo recusandae quos quam et repellendus, distinctio vel ducimus laudantium fuga. Eligendi quia sint earum dolor?"
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quo iusto dolores corrupti doloremque illo recusandae quos quam et repellendus, distinctio vel ducimus laudantium fuga. Eligendi quia sint earum dolor?'
                 ),
                 _react2.default.createElement(
-                    "p",
+                    'p',
                     null,
-                    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quo iusto dolores corrupti doloremque illo recusandae quos quam et repellendus, distinctio vel ducimus laudantium fuga. Eligendi quia sint earum dolor?"
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quo iusto dolores corrupti doloremque illo recusandae quos quam et repellendus, distinctio vel ducimus laudantium fuga. Eligendi quia sint earum dolor?'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quo iusto dolores corrupti doloremque illo recusandae quos quam et repellendus, distinctio vel ducimus laudantium fuga. Eligendi quia sint earum dolor?'
+                ),
+                _react2.default.createElement(
+                    'p',
+                    null,
+                    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet quo iusto dolores corrupti doloremque illo recusandae quos quam et repellendus, distinctio vel ducimus laudantium fuga. Eligendi quia sint earum dolor?'
+                ),
+                _react2.default.createElement('br', null),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'display' },
+                    _react2.default.createElement('img', { className: 'display-image', src: 'https://image.ibb.co/kGp5Zw/Wearable_Tech.jpg', alt: 'Wearable_Tech', border: '0' }),
+                    _react2.default.createElement('img', { className: 'display-image', src: 'https://image.ibb.co/dgxQZw/wearables_forrester.jpg', alt: 'wearables_forrester', border: '0' }),
+                    _react2.default.createElement('img', { className: 'display-image', src: 'https://image.ibb.co/coxsEw/Algorithm_design.jpg', alt: 'Algorithm_design', border: '0' })
                 )
             );
         }
@@ -10519,14 +10541,18 @@ var Footer = function (_Component) {
 
             return _react2.default.createElement(
                 'div',
-                null,
+                { id: 'foot-section' },
                 _react2.default.createElement(
                     'footer',
                     null,
-                    '\xA9AK 2018',
                     _react2.default.createElement(
                         'p',
-                        { onClick: function onClick() {
+                        { className: 'copy' },
+                        '\xA9AK 2018'
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        { className: 'contact-foot', onClick: function onClick() {
                                 _this2.props.toggleModal();
                             } },
                         'Contact Us'

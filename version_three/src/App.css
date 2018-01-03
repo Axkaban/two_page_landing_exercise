@@ -1,6 +1,140 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Ubuntu');
+
+
+body{
+  background-image: url('http://crazzfiles.com/wp-content/uploads/2015/06/thync_home_main.jpg');
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(133, 139, 175);
+  background-clip: border-box;
+  margin: 0;
+  padding: 0;
+
+
 }
+#root {
+  margin: 0;
+  padding: 0;
+
+}
+
+.App {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  display: -ms-grid;
+  /* background-image: url('./media/images/thync_home_main.jpg'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-color: rgb(133, 139, 175); */
+  background-clip: border-box; 
+  padding: 0%;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder !important;
+  font-size: 1.1em;
+  word-wrap: break-word;
+}
+
+/* clearing up anchor tags */
+
+a {
+  text-decoration: none;
+  color: rgb(247, 238, 238);
+}
+
+
+/* styles for the navigation bar */
+
+div#nav-section {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+.nav-bar {
+  display: grid;
+  background-color: rgba(48, 50, 56, .9);
+  margin: 0;
+  padding: .2em;
+  color: rgb(247, 238, 238);
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+}
+
+#logo {
+  max-height: 6em;
+  max-width: 5.5em;
+  margin: 0;
+  margin-left: .3em;
+}
+
+
+/* styles for the center of the page */
+
+div#main-section,
+div#contact-form {
+  height: 28em;
+  margin: 10em;
+}
+
+.main-text {
+  font-family: 'Ubuntu', sans-serif;
+  color: rgb(206, 192, 191);
+}
+
+h3 {
+  color: rgb(221, 206, 203);
+}
+
+div.display {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 10em;
+  background-color: rgb(37, 46, 76);
+}
+
+img.display-image{
+  max-height: 100%;
+  max-width: 45%;
+}
+
+
+/* styles for the footer */
+
+div#foot-section {
+  /* position: relative; */
+  /* grid-row: 3; */
+  clear: both;
+  position: static;
+  /*z-index: 10;
+    height: 3em;*/
+  margin-top: 6em;
+}
+
+footer {
+  display: grid;
+  background-color: hsl(291, 32%, 12%);
+  color: rgb(247, 238, 238);
+  grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
+  align-items: center;
+  margin: 0;
+}
+
+.copy {
+  margin-left: 2em;
+}
+
+.facebook,
+.twitter {
+  height: 3.5em;
+  width: 3.5em;
+  margin: .3em;
+}
+
+/* Styles for the modal */
 
 .backdrop {
   position: fixed;
@@ -8,7 +142,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 50px;
 }
 
@@ -16,7 +150,7 @@
   display: flex;
   flex-direction: column;
   align-content: center;
-  background-color: #fff;
+  background-color: rgba(51, 61, 96, .7);
   border-radius: 5px;
   max-width: 30rem;
   min-height: 30rem;
@@ -25,6 +159,38 @@
   z-index: 999;
 }
 
-.footer {
-  align-self: flex-start;
+
+
+/* detail for form */
+
+#contact-form {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
+
+.contact-info {
+  padding-top: 5em;
+}
+
+label {
+  margin: 1em;
+}
+
+input {
+  margin: 1em;
+  background-color: transparent;
+}
+
+select {
+  background-color: transparent;
+}
+
+.submit-button {
+  width: 20em;
+  background-color: rgb(103, 69, 96);
+  border: .1em solid rgb(78, 53, 73);
+  border-radius: 3px;
+  font-size: 1.2em;
+}
+

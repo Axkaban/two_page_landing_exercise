@@ -22,7 +22,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" id='container'>
         <Modal show={this.state.isOpen} onClose={this.toggleModal.bind(this)}>
         </Modal>
         <NavBar toggleModal = {this.toggleModal.bind(this)}></NavBar>

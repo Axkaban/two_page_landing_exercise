@@ -3,12 +3,14 @@ import React, { Component } from "react";
 class NavBar extends Component {
     render(props){
         return (
-            <nav>
-                <img className ='logo' src= '#'alt=''/>
+            <div id = 'nav-section'> 
+               <nav className = 'nav-bar'>
+                    <img id= 'logo' src="https://image.ibb.co/hyfjSG/spiral_brand.png" alt="spiral_brand" border="0"/>
                 <a href='#'>About us</a>
                 <a href='#'>Product</a>
-                <h2 className = 'contact-button' onClick={()=>{this.props.toggleModal()}}>Contact us</h2>
-            </nav>
+                <a className = 'contact-button' onClick={()=>{this.props.toggleModal()}}>Contact us</a>
+              </nav>
+            </div>
         )
     }
 }
