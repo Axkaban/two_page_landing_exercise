@@ -10,7 +10,8 @@ class Modal extends Component {
             lastName: '',
             email: '',
             zipCode: '',
-            state: ''
+            state: '',
+            message: '',
 
         }
         // this.handleChange = this.handleChange.bind(this);
@@ -31,15 +32,89 @@ class Modal extends Component {
     // To send to the data base
     handleSubmit(e) {
         e.preventDefault();
-        // if (!this.state.firstName.match(/[a-zA-Z]/)){
-        //     alert('Your name have extra characteres from a-z, please edit');
-        // } else if (!this.state.lastName.match(/([^." ,\t ;:@#$%\^&*()\[\]\{\}\\|/!]?`~<>+=)?/)){
-        //     alert("You have a non accepted character, please adjust.");
-        // } else if (!this.state.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-        //     alert("You have entered an invalid email address!");
-        // } else if (!this.state.zipCode.match(/(^\d{5}$)|(^\d{5}-\d{4}$)/)) {
-        //     alert("You have entered an invalid zipCode!");
-        // } else{
+        const firstName = this.state.firstName,
+            lastName = this.state.lastName,
+            email = this.state.email,
+            zipCode = this.state.zipCode,
+            usState = this.state.usState,
+            nameTest = /[A-Za-z]\w+/,
+            lastNameTest = /([A-Za-z-'].\w)\D/,
+            emailTest = /[^ @]*@[^ @]*/,
+            zipCodeTest = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+
+        // function to validate the input in each field
+        const validate = (el, pattern) => {
+            if (el.value === '') {
+                el.focus();
+                this.setState({
+                    message: 'All fields must be filled'
+                })
+                console.log('failed');
+                setTimeout(() => {
+                    this.setState({
+                        message: ''
+                    })
+                }, 5000);
+                return false;
+            } else if (!pattern.test(el.value)) {
+                if (el === firstName) {
+                    console.log('failed name')
+                    el.focus();
+                    this.setState({
+                        message:'Your name must contain only aphabetic characters'
+                    });
+                    setTimeout(() => {
+                        this.setState({
+                            message: ''
+                        })
+                    }, 5000);
+                    return false;
+                };
+                if (el === lastName) {
+                    console.log('failed last')
+                    el.focus();
+                    this.setState({
+                        message: 'Your last name cannot contain numbers or any characters other than alphabetic, apostrophes, and hyphen'
+                    });
+                    setTimeout(() => {
+                        this.setState({
+                            message: ''
+                        })
+                    }, 5000);
+                    return false;
+                };
+                if (el === email) {
+                    console.log('failed email')
+                    el.focus();
+                    this.setState({
+                        message: 'Please insert a valid email'
+                    });
+                    setTimeout(() => {
+                        this.setState({
+                            message: ''
+                        })
+                    }, 5000);
+                    return false;
+                };
+                if (el === zipCode) {
+                    console.log('failed zip')
+                    el.focus();
+                    this.setState({
+                        message: 'Please insert a valid zip code'
+                    });
+                    setTimeout(() => {
+                        this.setState({
+                            message: ''
+                        })
+                    }, 5000);
+                    return false;
+                };
+                return false;
+            } else {
+                return true;
+            };
+        };//end of validate()
+        if (validate(firstName, nameTest) && validate(lastName, lastNameTest) && validate(email, emailTest) && validate(zipCode, zipCodeTest)) {
           const contactInfo = {
                 first_name: this.state.firstName,
                 last_name: this.state.lastName,
@@ -51,7 +126,7 @@ class Modal extends Component {
             Axios.post('/contacts', contactInfo)
             .then(res => console.log(res.data))
             .catch(err => console.log(err));
-        // }
+         }
         
     } 
     render(props) {
@@ -65,8 +140,8 @@ class Modal extends Component {
             <div className='backdrop'>
                 <div className='modal'>
                     <div className='footer'>
-                        <button onClick={this.props.onClose}>
-                            Close
+                        <button className = 'closing-button' onClick={this.props.onClose}>
+                          X
                         </button>
                     </div>
                     <form className='contact-info' method='post' onSubmit={this.handleSubmit.bind(this)}>
@@ -138,6 +213,7 @@ class Modal extends Component {
                         <br/>
                         <input className= 'submit-button' type="submit" value="Save"/>
                     </form>
+                    <p class= 'alert'>{this.state.message}</p>
                 </div>
             </div>
         )

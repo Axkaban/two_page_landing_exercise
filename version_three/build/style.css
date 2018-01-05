@@ -1,30 +1,22 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat|Ubuntu);body{
-  background-image: url('http://crazzfiles.com/wp-content/uploads/2015/06/thync_home_main.jpg');
-
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: rgb(133, 139, 175);
-  background-clip: border-box;
   margin: 0;
   padding: 0;
 
 
 }
-#root {
+div#root {
   margin: 0;
   padding: 0;
 
 }
 
-.App {
+div.App {
   width: 100%;
   height: 100%;
   display: grid;
   display: -ms-grid;
-  /* background-image: url('./media/images/thync_home_main.jpg'); */
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-color: rgb(133, 139, 175); */
   background-clip: border-box; 
   padding: 0%;
   margin: 0;
@@ -50,7 +42,7 @@ div#nav-section {
   z-index: 10;
 }
 
-.nav-bar {
+nav.nav-bar {
   display: grid;
   background-color: rgba(48, 50, 56, .9);
   margin: 0;
@@ -60,11 +52,41 @@ div#nav-section {
   align-items: center;
 }
 
-#logo {
+img#logo {
   max-height: 6em;
   max-width: 5.5em;
   margin: 0;
   margin-left: .3em;
+}
+
+/* styles for hero section */
+
+div#hero {
+  background-image: url('http://crazzfiles.com/wp-content/uploads/2015/06/thync_home_main.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(133, 139, 175);
+  background-clip: border-box;
+  height: 38em;
+  text-align: center;
+}
+
+img.spiral-logo {
+  margin-top: 4em;
+  max-height: 50%;
+  max-width: 50%;
+
+}
+
+h1.main-text,
+button.closing-button {
+  font-family: 'Ubuntu', sans-serif;
+  color: rgb(206, 192, 191);
+}
+
+
+h3 {
+  color: rgb(221, 206, 203);
 }
 
 
@@ -73,42 +95,43 @@ div#nav-section {
 div#main-section,
 div#contact-form {
   height: 28em;
-  margin: 10em;
-}
+  margin: 3em 10em 0 10em;
 
-.main-text {
-  font-family: 'Ubuntu', sans-serif;
-  color: rgb(206, 192, 191);
-}
-
-h3 {
-  color: rgb(221, 206, 203);
 }
 
 div.display {
   display: flex;
-  justify-content: space-between;
   width: 100%;
-  height: 10em;
-  background-color: rgb(37, 46, 76);
+  height: 14em;
+  background-color: rgb(65, 77, 117);
+  border: .3em solid rgb(36, 44, 71);
+  margin-bottom: 10em;
+  
+
 }
 
 img.display-image{
   max-height: 100%;
-  max-width: 45%;
+  max-width: 30%;
+}
+
+div.display-text {
+  color: antiquewhite;
+  height: 100%;
+  min-width: 25%;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 2em;
+
 }
 
 
 /* styles for the footer */
 
 div#foot-section {
-  /* position: relative; */
-  /* grid-row: 3; */
   clear: both;
   position: static;
-  /*z-index: 10;
-    height: 3em;*/
-  margin-top: 6em;
+  margin-top: 10em;
 }
 
 footer {
@@ -120,12 +143,12 @@ footer {
   margin: 0;
 }
 
-.copy {
+p.copy {
   margin-left: 2em;
 }
 
-.facebook,
-.twitter {
+img.facebook,
+img.twitter {
   height: 3.5em;
   width: 3.5em;
   margin: .3em;
@@ -133,21 +156,21 @@ footer {
 
 /* Styles for the modal */
 
-.backdrop {
+div.backdrop {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 50px;
 }
 
-.modal {
+div.modal {
   display: flex;
   flex-direction: column;
   align-content: center;
-  background-color: rgba(51, 61, 96, .7);
+  background-color: rgba(86, 98, 143, 0.7);
   border-radius: 5px;
   max-width: 30rem;
   min-height: 30rem;
@@ -156,17 +179,26 @@ footer {
   z-index: 999;
 }
 
+button.closing-button {
+  background-color: rgb(103, 69, 96);
+  border: .1em solid rgb(78, 53, 73);
+  border-radius: 3px;
+  font-size: 1.2em;
+  width: 2em;
+  height: 2em;
+
+}
 
 
 /* detail for form */
 
-#contact-form {
+/* #contact-form {
   display: flex;
   justify-content: center;
   align-content: center;
-}
+} */
 
-.contact-info {
+form.contact-info {
   padding-top: 5em;
 }
 
@@ -183,7 +215,7 @@ select {
   background-color: transparent;
 }
 
-.submit-button {
+input.submit-button {
   width: 20em;
   background-color: rgb(103, 69, 96);
   border: .1em solid rgb(78, 53, 73);

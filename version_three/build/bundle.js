@@ -9013,15 +9013,19 @@ var _modal = __webpack_require__(39);
 
 var _modal2 = _interopRequireDefault(_modal);
 
-var _textSection = __webpack_require__(59);
+var _hero = __webpack_require__(59);
+
+var _hero2 = _interopRequireDefault(_hero);
+
+var _textSection = __webpack_require__(60);
 
 var _textSection2 = _interopRequireDefault(_textSection);
 
-var _footer = __webpack_require__(60);
+var _footer = __webpack_require__(61);
 
 var _footer2 = _interopRequireDefault(_footer);
 
-__webpack_require__(61);
+__webpack_require__(62);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9063,6 +9067,7 @@ var App = function (_Component) {
         { className: 'App', id: 'container' },
         _react2.default.createElement(_modal2.default, { show: this.state.isOpen, onClose: this.toggleModal.bind(this) }),
         _react2.default.createElement(_navbar2.default, { toggleModal: this.toggleModal.bind(this) }),
+        _react2.default.createElement(_hero2.default, null),
         _react2.default.createElement(_textSection2.default, null),
         _react2.default.createElement(_footer2.default, { toggleModal: this.toggleModal.bind(this) })
       );
@@ -9119,7 +9124,7 @@ var NavBar = function (_Component) {
                 _react2.default.createElement(
                     'nav',
                     { className: 'nav-bar' },
-                    _react2.default.createElement('img', { id: 'logo', src: 'https://image.ibb.co/hyfjSG/spiral_brand.png', alt: 'spiral_brand', border: '0' }),
+                    _react2.default.createElement('img', { id: 'logo', src: 'https://image.ibb.co/ncKugb/spiral_brand.png', alt: 'spiral_brand', border: '0' }),
                     _react2.default.createElement(
                         'a',
                         { href: '#' },
@@ -9193,7 +9198,8 @@ var Modal = function (_Component) {
             lastName: '',
             email: '',
             zipCode: '',
-            state: ''
+            state: '',
+            message: ''
             // this.handleChange = this.handleChange.bind(this);
             // this.handleSubmit = this.handleSubmit.bind(this);
         };return _this;
@@ -9217,30 +9223,106 @@ var Modal = function (_Component) {
     }, {
         key: 'handleSubmit',
         value: function handleSubmit(e) {
+            var _this2 = this;
+
             e.preventDefault();
-            // if (!this.state.firstName.match(/[a-zA-Z]/)){
-            //     alert('Your name have extra characteres from a-z, please edit');
-            // } else if (!this.state.lastName.match(/([^." ,\t ;:@#$%\^&*()\[\]\{\}\\|/!]?`~<>+=)?/)){
-            //     alert("You have a non accepted character, please adjust.");
-            // } else if (!this.state.email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
-            //     alert("You have entered an invalid email address!");
-            // } else if (!this.state.zipCode.match(/(^\d{5}$)|(^\d{5}-\d{4}$)/)) {
-            //     alert("You have entered an invalid zipCode!");
-            // } else{
-            var contactInfo = {
-                first_name: this.state.firstName,
-                last_name: this.state.lastName,
-                email: this.state.email,
-                zip_code: this.state.zipCode,
-                us_state: this.state.usState
-            };
-            console.log(contactInfo);
-            _axios2.default.post('/contacts', contactInfo).then(function (res) {
-                return console.log(res.data);
-            }).catch(function (err) {
-                return console.log(err);
-            });
-            // }
+            var firstName = this.state.firstName,
+                lastName = this.state.lastName,
+                email = this.state.email,
+                zipCode = this.state.zipCode,
+                usState = this.state.usState,
+                nameTest = /[A-Za-z]\w+/,
+                lastNameTest = /([A-Za-z-'].\w)\D/,
+                emailTest = /[^ @]*@[^ @]*/,
+                zipCodeTest = /(^\d{5}$)|(^\d{5}-\d{4}$)/;
+
+            // function to validate the input in each field
+            var validate = function validate(el, pattern) {
+                if (el.value === '') {
+                    el.focus();
+                    _this2.setState({
+                        message: 'All fields must be filled'
+                    });
+                    console.log('failed');
+                    setTimeout(function () {
+                        _this2.setState({
+                            message: ''
+                        });
+                    }, 5000);
+                    return false;
+                } else if (!pattern.test(el.value)) {
+                    if (el === firstName) {
+                        console.log('failed name');
+                        el.focus();
+                        _this2.setState({
+                            message: 'Your name must contain only aphabetic characters'
+                        });
+                        setTimeout(function () {
+                            _this2.setState({
+                                message: ''
+                            });
+                        }, 5000);
+                        return false;
+                    };
+                    if (el === lastName) {
+                        console.log('failed last');
+                        el.focus();
+                        _this2.setState({
+                            message: 'Your last name cannot contain numbers or any characters other than alphabetic, apostrophes, and hyphen'
+                        });
+                        setTimeout(function () {
+                            _this2.setState({
+                                message: ''
+                            });
+                        }, 5000);
+                        return false;
+                    };
+                    if (el === email) {
+                        console.log('failed email');
+                        el.focus();
+                        _this2.setState({
+                            message: 'Please insert a valid email'
+                        });
+                        setTimeout(function () {
+                            _this2.setState({
+                                message: ''
+                            });
+                        }, 5000);
+                        return false;
+                    };
+                    if (el === zipCode) {
+                        console.log('failed zip');
+                        el.focus();
+                        _this2.setState({
+                            message: 'Please insert a valid zip code'
+                        });
+                        setTimeout(function () {
+                            _this2.setState({
+                                message: ''
+                            });
+                        }, 5000);
+                        return false;
+                    };
+                    return false;
+                } else {
+                    return true;
+                };
+            }; //end of validate()
+            if (validate(firstName, nameTest) && validate(lastName, lastNameTest) && validate(email, emailTest) && validate(zipCode, zipCodeTest)) {
+                var contactInfo = {
+                    first_name: this.state.firstName,
+                    last_name: this.state.lastName,
+                    email: this.state.email,
+                    zip_code: this.state.zipCode,
+                    us_state: this.state.usState
+                };
+                console.log(contactInfo);
+                _axios2.default.post('/contacts', contactInfo).then(function (res) {
+                    return console.log(res.data);
+                }).catch(function (err) {
+                    return console.log(err);
+                });
+            }
         }
     }, {
         key: 'render',
@@ -9262,8 +9344,8 @@ var Modal = function (_Component) {
                         { className: 'footer' },
                         _react2.default.createElement(
                             'button',
-                            { onClick: this.props.onClose },
-                            'Close'
+                            { className: 'closing-button', onClick: this.props.onClose },
+                            'X'
                         )
                     ),
                     _react2.default.createElement(
@@ -9558,6 +9640,11 @@ var Modal = function (_Component) {
                         ),
                         _react2.default.createElement('br', null),
                         _react2.default.createElement('input', { className: 'submit-button', type: 'submit', value: 'Save' })
+                    ),
+                    _react2.default.createElement(
+                        'p',
+                        { 'class': 'alert' },
+                        this.state.message
                     )
                 )
             );
@@ -10436,6 +10523,68 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var Hero = function (_Component) {
+    _inherits(Hero, _Component);
+
+    function Hero() {
+        _classCallCheck(this, Hero);
+
+        return _possibleConstructorReturn(this, (Hero.__proto__ || Object.getPrototypeOf(Hero)).apply(this, arguments));
+    }
+
+    _createClass(Hero, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { id: 'hero' },
+                _react2.default.createElement('img', { className: 'spiral-logo', src: 'https://image.ibb.co/nRv6uw/octagon_icon.png', alt: '' }),
+                _react2.default.createElement(
+                    'h1',
+                    { className: 'main-text' },
+                    'We are Spiral'
+                ),
+                _react2.default.createElement(
+                    'h3',
+                    null,
+                    'A better way to use your wearables\' data'
+                )
+            );
+        }
+    }]);
+
+    return Hero;
+}(_react.Component);
+
+;
+
+exports.default = Hero;
+
+/***/ }),
+/* 60 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(2);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 var TextSection = function (_Component) {
     _inherits(TextSection, _Component);
 
@@ -10451,16 +10600,6 @@ var TextSection = function (_Component) {
             return _react2.default.createElement(
                 'div',
                 { id: 'main-section' },
-                _react2.default.createElement(
-                    'h1',
-                    { className: 'main-text' },
-                    'We are Spiral'
-                ),
-                _react2.default.createElement(
-                    'h3',
-                    null,
-                    'A better way to use your wearables\' data'
-                ),
                 _react2.default.createElement(
                     'p',
                     null,
@@ -10486,7 +10625,17 @@ var TextSection = function (_Component) {
                     'div',
                     { className: 'display' },
                     _react2.default.createElement('img', { className: 'display-image', src: 'https://image.ibb.co/kGp5Zw/Wearable_Tech.jpg', alt: 'Wearable_Tech', border: '0' }),
-                    _react2.default.createElement('img', { className: 'display-image', src: 'https://image.ibb.co/dgxQZw/wearables_forrester.jpg', alt: 'wearables_forrester', border: '0' }),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'display-text' },
+                        ' ',
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+                        ),
+                        ' '
+                    ),
                     _react2.default.createElement('img', { className: 'display-image', src: 'https://image.ibb.co/coxsEw/Algorithm_design.jpg', alt: 'Algorithm_design', border: '0' })
                 )
             );
@@ -10501,7 +10650,7 @@ var TextSection = function (_Component) {
 exports.default = TextSection;
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10583,7 +10732,7 @@ var Footer = function (_Component) {
 exports.default = Footer;
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

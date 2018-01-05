@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NavBar from './navbar';
 import Modal from './modal';
+import Hero from './hero';
 import Text from './text-section';
 import Footer from './footer';
 import '../App.css';
@@ -26,6 +27,7 @@ class App extends Component {
         <Modal show={this.state.isOpen} onClose={this.toggleModal.bind(this)}>
         </Modal>
         <NavBar toggleModal = {this.toggleModal.bind(this)}></NavBar>
+        <Hero></Hero>
         <Text></Text>
         <Footer toggleModal={this.toggleModal.bind(this)}></Footer>
       </div>

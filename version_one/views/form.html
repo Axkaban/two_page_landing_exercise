@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" media="screen" href="/css/style.css" />
+    <script type="text/javascript" src="/js/jquery.js"></script>
     <script type='text/javascript' src="/js/script.js"></script>
 </head>
-<body id='container'>
+<body id='container' class = 'form-container'>
     <!-- Keeping access from the nav -->
     <div id='nav-section'> 
        <nav class='nav-bar'>
-            <a href='/'><img id='logo' src='/css/images/spiral_brand.png' alt='' /></a>
+            <a href='/'><img id='logo' src='/css/images/spiral_brand_2.png' alt='' /></a>
             <a href='#'>About us</a>
             <a href='#'>Product</a>
             <a class='contact-button' href='./form.html'>Contact us</a>
@@ -20,21 +21,21 @@
     </div>
     <!-- Section for form to contact -->
     <div id='contact-form'>
-        <form class ='contact-info' method='post'>
+        <form id ='contact-info'>
             <label for='POST-first-name'>First Name:</label>
-            <input id='POST-first-name' type='text' placeholder='first name' pattern="[A-Za-z]+" title='Alphabet charachters only'/>
+            <input id='name' name = 'firstName' type='text' placeholder='first name'/>
             <br/>
             <label for='POST-last-name'>Last Name:</label>
-            <input id='POST-last-name' type='text' placeholder='Last name' pattern='[^." ,\t ;:@#$%\^&*()\[\]\{\}\\|/!?`~<>+=]+?' title='Alphabet charachters, hyphens, and apostrophes only'/>
+            <input id='last-name' type='text' placeholder='Last name'/>
             <br/>
             <label for='POST-email'>Email:</label>
-            <input id='POST-email' type='text' placeholder='email@email.com'  pattern: '[^ @]*@[^ @]*'/>
+            <input id='email' type='text' placeholder='email@email.com'/>
             <br/>
             <label for='POST-zip-code'>Zip Code:</label>
-            <input id='POST-zip-code' type='integer' placeholder='Zip Code' />
+            <input id='zip-code' type='integer' placeholder='Zip Code' />
             <br/>
             <label for='POST-us-state'>State of Residence( US Only ):</label>
-            <select id='POST-us-state'>
+            <select id='us-state'>
                 <option selected value='Alabama'>Alabama</option>
                 <option value='Alaska'>Alaska</option>
                 <option value='Arizona'>Arizona</option>
