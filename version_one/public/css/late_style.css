@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Ubuntu');
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body#container {
+    min-width: 100vw;
+    min-height: 100vh;
+    display: grid;
+    display: -ms-grid; 
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder !important;
+    font-size: 1.1em;
+    word-wrap: break-word;
+}
+
+/* clearing up anchor tags */
+a{
+    text-decoration: none;
+    color: rgb(247, 238, 238);
+
+
+}
+/* styles for the navigation bar */
+div#nav-section {
+    position: fixed;
+    min-width: 100vw;
+    z-index: 10;
+}
+nav.nav-bar{
+    display: grid;
+    background-color: rgba(48, 50, 56, .9);
+    margin:0 !important;
+    padding:.2em;
+    color: rgb(247, 238, 238);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: center;
+
+
+}
+
+img#logo{
+    max-height: 6em;
+    max-width: 5.5em;
+    margin:0;
+    margin-left: .3em;
+}
+/* styles for hero section*/
+div#hero {
+    background-image: url('./images/Artboard_1.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgb(133, 139, 175);
+    background-clip: border-box;
+    height:38em;
+    text-align: center;
+    max-width: 100vw;
+}
+
+img.spiral-logo{
+    margin-top: 3em;
+    max-height: 50%;
+    max-width: 50%;
+}
+
+h1.main-text {
+  font-family: 'Ubuntu', sans-serif;
+  color: rgb(206, 192, 191);
+}
+
+h3 {
+  color: rgb(221, 206, 203);
+}
+
+
+/* styles for the center of the page */
+
+div#main-section,
+div#contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 29em;
+    margin: 3em 10em 0 10em;
+    padding: 0;
+}
+
+
+
+div.display {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -ms-flex-direction: row;
+    min-width: 72vw;
+    min-height: 16em;
+    background-color: rgb(65, 77, 117);
+    border: .3em solid rgb(36, 44, 71);
+}
+
+img.display-image {
+    max-height: 100vh;
+    max-width: 30%;
+}
+
+div.display-text {
+    color: antiquewhite;
+    height: 100%;
+    min-width: 25%;
+    font-size: 1.3em;
+    text-align: center;
+    padding: 2em;
+}
+
+
+
+/* styles for the footer */
+
+div#foot-section{
+    min-width: 100vw;
+    clear: both;
+    position: static;
+    margin-top: 5.8em; 
+
+}
+footer{
+    display: grid;
+    background-color: hsl(291, 32%, 12%);
+    color: rgb(247, 238, 238);
+    grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
+    align-items: center;
+    margin:0;
+    margin-top: 4em;
+}
+
+p.copy{
+    margin-left: 2em;
+}
+ 
+img.facebook,
+img.twitter{
+    height: 3.5em;
+    width: 3.5em;
+    margin:.3em;
+}
+
+/* detail for form */
+div#contact-form{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    min-height: 30rem;
+    margin: 0 auto;
+    margin-bottom: 2.5em;
+    padding-bottom: 1em;
+    background-color: rgb(195, 187, 195);
+
+}
+
+form#contact-info{
+    align-self: center;
+    display:flex; 
+    display: -webkit-flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin-top:5em;
+    background-color: rgba(86, 98, 143, 0.7);
+    border-radius: 5px;
+    max-width: 50vw;
+
+}
+
+label {
+    margin:.1em;
+    align-self: center;
+}
+
+  input,
+select {
+
+    margin: .1em;
+    background-color: transparent;
+    width: 50%;
+    align-self: center;
+}
+
+
+input.submit-button{
+    max-width: 30vw;
+    background-color: rgb(103, 69, 96);
+    border: .1em solid rgb(78, 53, 73);
+    border-radius: 3px;
+    font-size: 1.2em;
+}
+
+/* Styles for tablet */
+
+@media only screen and (min-devise-width: 768px) and (max-devise-width: 1024px) and (orientation: landscape) {
+body {
+    display: flex;
+    display: -webkit-flex;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+    /* for Nav */
+div#nav-section{
+    max-width: 100vw;
+        /* padding: 0 1vw 0 1vw; */
+}
+
+nav.nav-bar{
+    display: inline-block;
+}
+
+}
+
+@media only screen and (min-devise-width: 768px) and (max-devise-width: 1024px) and (orientation: portrait) {
+body {
+    display: flex;
+    display: -webkit-flex;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+    /* for Nav */
+div#nav-section{
+    max-width: 100vw;
+        /* padding: 0 1vw 0 1vw; */
+}
+
+nav.nav-bar{
+    display: inline-block;
+}
+
+}
+

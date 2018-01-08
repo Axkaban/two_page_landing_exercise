@@ -27,9 +27,11 @@ class App extends Component {
         <Modal show={this.state.isOpen} onClose={this.toggleModal.bind(this)}>
         </Modal>
         <NavBar toggleModal = {this.toggleModal.bind(this)}></NavBar>
-        <Hero></Hero>
-        <Text></Text>
-        <Footer toggleModal={this.toggleModal.bind(this)}></Footer>
+        <div id='content-container'>
+          <Hero></Hero>
+          <Text></Text>
+          <Footer toggleModal={this.toggleModal.bind(this)}></Footer>
+        </div>
       </div>
     );
   }

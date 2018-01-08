@@ -1,4 +1,33 @@
 $(document).ready(() => {
+    const changeNavIcon = () => {
+        let windowWidth = $(window).width();
+        let windowHeight = $(window).height();
+        if (windowWidth < 768) {
+            $('#logo').attr({
+                            'src' : '../css/images/menu.png',
+                            'href': '/'
+        }).css({
+                            'max-height': '2em',
+                            'max-width': '2em'
+            });
+            // $('.product-contact').css('visibility', 'hidden');
+            if(windowHeight <= 414){
+                $('#logo').css({
+                    'max-height': '1em',
+                    'max-width': '1em'
+                });
+            }
+        } else {
+            $('#logo').attr('src', '../css/images/spiral_brand_2.png');
+            $('.product-contact').css('visibility', 'visible');
+        }
+    };
+changeNavIcon();
+// check for window size for menu icon
+    $(window).resize(function () {
+        changeNavIcon();
+    });
+
 
 //  adding listener for the submit to form
     $('#contact-info').on('submit', e => {

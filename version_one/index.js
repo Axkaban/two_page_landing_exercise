@@ -7,7 +7,7 @@ const pgp = require('pg-promise')();
 //calling express
 const app = express();
 //getting my port to run
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 //setting up my connection to html
 app.engine('html', mustacheExpress());
