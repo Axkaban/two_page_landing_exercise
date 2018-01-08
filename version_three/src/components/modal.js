@@ -44,8 +44,7 @@ class Modal extends Component {
 
         // function to validate the input in each field
         const validate = (el, pattern) => {
-            if (el.value === '') {
-                el.focus();
+            if (el === '') {
                 this.setState({
                     message: 'All fields must be filled'
                 })
@@ -56,10 +55,9 @@ class Modal extends Component {
                     })
                 }, 5000);
                 return false;
-            } else if (!pattern.test(el.value)) {
+            } else if (!pattern.test(el)) {
                 if (el === firstName) {
                     console.log('failed name')
-                    el.focus();
                     this.setState({
                         message:'Your name must contain only aphabetic characters'
                     });
@@ -72,7 +70,6 @@ class Modal extends Component {
                 };
                 if (el === lastName) {
                     console.log('failed last')
-                    el.focus();
                     this.setState({
                         message: 'Your last name cannot contain numbers or any characters other than alphabetic, apostrophes, and hyphen'
                     });
@@ -85,7 +82,6 @@ class Modal extends Component {
                 };
                 if (el === email) {
                     console.log('failed email')
-                    el.focus();
                     this.setState({
                         message: 'Please insert a valid email'
                     });
@@ -98,7 +94,7 @@ class Modal extends Component {
                 };
                 if (el === zipCode) {
                     console.log('failed zip')
-                    el.focus();
+                    console.log(el, zipCode)
                     this.setState({
                         message: 'Please insert a valid zip code'
                     });
@@ -124,11 +120,23 @@ class Modal extends Component {
             };
         console.log(contactInfo);
             Axios.post('/contacts', contactInfo)
-            .then(res => console.log(res.data))
+            .then(res => {
+                console.log(res.data);
+                this.setState({
+                    firstName: '',
+                    lastName: '',
+                    email: '',
+                    zipCode: '',
+                    state: '',
+                    message: '',
+
+                });
+            })
             .catch(err => console.log(err));
          }
         
     } 
+
     render(props) {
 
         // boolean to render the modal or not
@@ -140,7 +148,7 @@ class Modal extends Component {
             <div className='backdrop'>
                 <div className='modal'>
                     <div className='footer'>
-                        <button className = 'closing-button' onClick={this.props.onClose}>
+                        <button className='closing-button' onClick={this.props.onClose}>
                           X
                         </button>
                     </div>
@@ -213,7 +221,7 @@ class Modal extends Component {
                         <br/>
                         <input className= 'submit-button' type="submit" value="Save"/>
                     </form>
-                    <p class= 'alert'>{this.state.message}</p>
+                    <p className= 'alert'>{this.state.message}</p>
                 </div>
             </div>
         )

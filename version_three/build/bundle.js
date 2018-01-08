@@ -9053,17 +9053,6 @@ var App = function (_Component) {
     return _this;
   }
 
-  // changeMenuIcon(size) {
-  //   if (size < 768) {
-  //     this.setState({
-  //       img: this.state.mobile
-  //     })
-  //   } else {
-  //     this.setState({
-  //       img: this.state.desktop
-  //     })
-  //   }
-  // }
   // to start as the app opens
 
 
@@ -9268,8 +9257,7 @@ var Modal = function (_Component) {
 
             // function to validate the input in each field
             var validate = function validate(el, pattern) {
-                if (el.value === '') {
-                    el.focus();
+                if (el === '') {
                     _this2.setState({
                         message: 'All fields must be filled'
                     });
@@ -9280,10 +9268,9 @@ var Modal = function (_Component) {
                         });
                     }, 5000);
                     return false;
-                } else if (!pattern.test(el.value)) {
+                } else if (!pattern.test(el)) {
                     if (el === firstName) {
                         console.log('failed name');
-                        el.focus();
                         _this2.setState({
                             message: 'Your name must contain only aphabetic characters'
                         });
@@ -9296,7 +9283,6 @@ var Modal = function (_Component) {
                     };
                     if (el === lastName) {
                         console.log('failed last');
-                        el.focus();
                         _this2.setState({
                             message: 'Your last name cannot contain numbers or any characters other than alphabetic, apostrophes, and hyphen'
                         });
@@ -9309,7 +9295,6 @@ var Modal = function (_Component) {
                     };
                     if (el === email) {
                         console.log('failed email');
-                        el.focus();
                         _this2.setState({
                             message: 'Please insert a valid email'
                         });
@@ -9322,7 +9307,7 @@ var Modal = function (_Component) {
                     };
                     if (el === zipCode) {
                         console.log('failed zip');
-                        el.focus();
+                        console.log(el, zipCode);
                         _this2.setState({
                             message: 'Please insert a valid zip code'
                         });
@@ -9348,7 +9333,16 @@ var Modal = function (_Component) {
                 };
                 console.log(contactInfo);
                 _axios2.default.post('/contacts', contactInfo).then(function (res) {
-                    return console.log(res.data);
+                    console.log(res.data);
+                    _this2.setState({
+                        firstName: '',
+                        lastName: '',
+                        email: '',
+                        zipCode: '',
+                        state: '',
+                        message: ''
+
+                    });
                 }).catch(function (err) {
                     return console.log(err);
                 });
@@ -9673,7 +9667,7 @@ var Modal = function (_Component) {
                     ),
                     _react2.default.createElement(
                         'p',
-                        { 'class': 'alert' },
+                        { className: 'alert' },
                         this.state.message
                     )
                 )

@@ -101,7 +101,8 @@ changeNavIcon();
                 },
                 success: res => {
                     console.log('success');
-                    window.location.replace('/tasks');
+                    alert('Thank you! We will contact you soon.')
+                    window.location.replace('/');
                 }, error: err => console.log(err)
             }); // end of Ajax call
         }

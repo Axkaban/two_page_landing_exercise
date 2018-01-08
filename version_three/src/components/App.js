@@ -4,7 +4,7 @@ import Modal from './modal';
 import Hero from './hero';
 import Text from './text-section';
 import Footer from './footer';
-import '../App2.css';
+import '../App.css';
 
 class App extends Component {
   constructor(props) {
@@ -18,17 +18,7 @@ class App extends Component {
     }
   }
 
-  // changeMenuIcon(size) {
-  //   if (size < 768) {
-  //     this.setState({
-  //       img: this.state.mobile
-  //     })
-  //   } else {
-  //     this.setState({
-  //       img: this.state.desktop
-  //     })
-  //   }
-  // }
+ 
   // to start as the app opens
   componentDidMount(){
     if (window.innerWidth < 768) {
