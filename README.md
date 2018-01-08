@@ -1,5 +1,8 @@
 # two_page_landing_exercise from Axel Kaban
 
+See the website version one here: [Spiral](https://fierce-harbor-25373.herokuapp.com/)
+See the website version two(react) here: [Spiral react](https://spiral-react.herokuapp.com/)
+
 # Requirements:
 
 ## The Details:
@@ -39,3 +42,7 @@ I had created version two through create-react-app but there was too much that I
 ### As a note
 
 Once set the database, it saves the contact info. very basic validation built, just through regEx.
+
+I have left console. logs for display purposes only. You're able to see the object created from the form and the id returned once it has been inserted in the database.
+
+At last, the react version renders form as a modal instead of looking like a second page.
