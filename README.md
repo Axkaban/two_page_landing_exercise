@@ -41,8 +41,8 @@ I had created version two through create-react-app but there was too much that I
 
 ### As a note
 
-Once set the database, it saves the contact info. very basic validation built, just through regEx.
+Once set the database, it saves the contact info. very basic validation built, just through regEx, but it will bring up if there is an issue at the bottom of the form.
 
-I have left console. logs for display purposes only. You're able to see the object created from the form and the id returned once it has been inserted in the database.
+I have left console logs for display purposes only on the react version. You're able to see the object created from the form and the id returned once it has been inserted in the database. For the two page you reive a success log on console.
 
-At last, the react version renders form as a modal instead of looking like a second page.
+At last, the react version renders form as a modal instead of looking like a second page, but I left the css a little glitchy related to logo rendering and shifting menu logo.
